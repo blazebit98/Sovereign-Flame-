@@ -4,12 +4,12 @@ import { getProfile, saveProfile, getDayNumber, updateDayNumber, resetStreak } f
 import { Header } from './components/Header';
 import { TabBar } from './components/TabBar';
 import { EmergencyButton } from './components/EmergencyButton';
-import { EmergencyScreen } from './components/EmergencyScreen';
-import { TodayScreen } from './components/TodayScreen';
-import { BladeModal } from './components/BladeModal';
-import { RelapseScreen } from './components/RelapseScreen';
-import { OnboardingFlow } from './components/OnboardingFlow';
-import { SettingsScreen } from './components/SettingsScreen';
+import { EmergencyScreen } from './screens/EmergencyScreen';
+import { TodayScreen } from './screens/TodayScreen';
+import { BladeModal } from './screens/BladeModal';
+import { RelapseScreen } from './screens/RelapseScreen';
+import { OnboardingFlow } from './screens/OnboardingFlow';
+import { SettingsScreen } from './screens/SettingsScreen';
 
 function PlaceholderTab({ title }: { title: string }) {
   return (
