@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0A0A0A;
+  --color-bg-card: #141414;
+  --color-bg-elevated: #1E1E1E;
+  --color-bg-input: #1A1A1A;
+  --color-text-primary: #E8E8E8;
+  --color-text-secondary: #9A9A9A;
+  --color-text-muted: #666666;
+  --color-accent: #D4A017;
+  --color-accent-dim: #8B6914;
+  --color-success: #2D8B4E;
+  --color-warning: #C4601D;
+  --color-danger: #B82020;
+  --color-danger-glow: #B8202066;
+  --color-info: #2D6B8B;
+}
+
+html, body, #root {
+  background-color: #0A0A0A;
+  color: #E8E8E8;
+  min-height: 100dvh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+  overflow-x: hidden;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+
+/* Selection */
+::selection {
+  background: #D4A01744;
+  color: #E8E8E8;
+}
+
+/* Flame animations */
+@keyframes flame-dance-1 {
+  0%, 100% { transform: scaleX(1) scaleY(1) translateY(0); opacity: 0.9; }
+  25% { transform: scaleX(0.94) scaleY(1.06) translateY(-1px); opacity: 1; }
+  50% { transform: scaleX(1.03) scaleY(0.96) translateY(-2px); opacity: 0.85; }
+  75% { transform: scaleX(0.96) scaleY(1.04) translateY(-1px); opacity: 0.95; }
+}
+
+@keyframes flame-dance-2 {
+  0%, 100% { transform: scaleX(1) scaleY(1) translateY(0) rotate(0deg); opacity: 0.7; }
+  33% { transform: scaleX(0.92) scaleY(1.08) translateY(-2px) rotate(-2deg); opacity: 0.85; }
+  66% { transform: scaleX(1.05) scaleY(0.94) translateY(-1px) rotate(1deg); opacity: 0.75; }
+}
+
+@keyframes flame-dance-3 {
+  0%, 100% { transform: scaleX(1) scaleY(1) translateY(0) rotate(0deg); opacity: 0.5; }
+  50% { transform: scaleX(0.9) scaleY(1.12) translateY(-3px) rotate(-1deg); opacity: 0.7; }
+}
+
+/* Emergency pulse */
+@keyframes emergency-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--color-danger-glow); }
+  50% { box-shadow: 0 0 0 10px transparent; }
+}
+
+@keyframes emergency-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Timer progress */
+@keyframes timer-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Wave animation for urge visualization */
+@keyframes wave-rise {
+  0% { transform: translateY(100%); }
+  50% { transform: translateY(0%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Fade in */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-fast {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out both;
+}
+
+.animate-fade-in-fast {
+  animation: fade-in-fast 0.2s ease-out both;
+}
+
+/* Stagger children */
+.stagger-children > * {
+  animation: fade-in 0.3s ease-out both;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 60ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 120ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 180ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 300ms; }
+.stagger-children > *:nth-child(7) { animation-delay: 360ms; }
+.stagger-children > *:nth-child(8) { animation-delay: 420ms; }
+
+/* Safe area */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
